@@ -743,14 +743,15 @@ footer{
 .hero-visual-stack{
   position:relative;
   display:flex;
-  flex-direction:column;
-  align-items:center;
+  flex-direction:row;
+  align-items:flex-end;
+  justify-content:center;
+  gap:12px;
 }
 .pato-hero-wrap{
-  position:absolute;
-  bottom:-10px;
-  right:-60px;
-  width:220px;
+  position:relative;
+  width:260px;
+  flex:none;
   z-index:10;
   pointer-events:none;
   filter:drop-shadow(0 16px 32px rgba(0,0,0,.4));
@@ -764,10 +765,10 @@ footer{
 /* ── PATO PROBLEMA ───────────────────────────────────────── */
 .pato-problema-wrap{
   text-align:center;
-  margin-bottom:16px;
+  margin-bottom:20px;
 }
 .pato-problema-img{
-  width:110px;
+  width:200px;
   height:auto;
   display:inline-block;
   filter:drop-shadow(0 8px 16px rgba(0,0,0,.3));
@@ -783,7 +784,7 @@ footer{
 }
 .tio-duck-wrap{
   flex:none;
-  width:160px;
+  width:240px;
 }
 .tio-duck-img{
   width:100%;
@@ -794,17 +795,11 @@ footer{
 
 /* ── PRICING PATO ────────────────────────────────────────── */
 .pricing-with-pato{
-  max-width:720px;
+  max-width:600px;
   margin:0 auto;
-  position:relative;
 }
 .pato-pricing-wrap{
-  position:absolute;
-  top:-60px;
-  right:-80px;
-  width:190px;
-  z-index:10;
-  pointer-events:none;
+  display:none;
 }
 .pato-pricing-img{
   width:100%;
@@ -820,7 +815,7 @@ footer{
   gap:14px;
 }
 .footer-pato{
-  width:52px;
+  width:90px;
   height:auto;
   display:block;
   filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));
@@ -828,19 +823,21 @@ footer{
 
 /* ── RESPONSIVE PATO ─────────────────────────────────────── */
 @media(max-width:900px){
-  .pato-hero-wrap{right:-20px;width:160px}
-  .pato-pricing-wrap{right:-30px;width:140px;top:-40px}
+  .pato-hero-wrap{width:200px}
+  .tio-duck-wrap{width:180px}
 }
 @media(max-width:768px){
-  .pato-hero-wrap{position:relative;bottom:auto;right:auto;width:140px;margin:16px auto 0}
-  .hero-visual-stack{flex-direction:column-reverse}
+  .hero-visual-stack{flex-direction:column;align-items:center;}
+  .pato-hero-wrap{width:180px;order:2;}
+  .book-wrap{order:1;}
   .tio-inner-grid{flex-direction:column;gap:20px}
-  .tio-duck-wrap{width:100px}
-  .pato-pricing-wrap{display:none}
+  .tio-duck-wrap{width:160px}
   .footer-left{flex-direction:row}
 }
 @media(max-width:480px){
-  .pato-hero-wrap{width:120px}
+  .pato-hero-wrap{width:150px}
+  .pato-problema-img{width:160px}
+  .tio-duck-wrap{width:130px}
 }
 
 </style>
@@ -864,7 +861,7 @@ footer{
         <text x="105" y="90" font-family="Montserrat,sans-serif" font-weight="600" font-size="22" fill="#D4AF37" letter-spacing="4">MILLONARIO</text>
       </svg>
     </div>
-    <a href="#checkout" class="btn btn--primary nav-cta">
+    <a href="https://pay.hotmart.com/M107747282T" class="btn btn--primary nav-cta">
       Obtener por $14.99
     </a>
   </div>
@@ -885,7 +882,7 @@ footer{
         Una semana para dejar de perder plumas en el camino. 7 pasos concretos para recuperar el control de tu dinero — sin tecnicismos, sin apps de pago, con un lápiz y este plan.
       </p>
 
-      <a href="#checkout" class="btn btn--primary btn--lg">
+      <a href="https://pay.hotmart.com/M107747282T" class="btn btn--primary btn--lg">
         <i data-lucide="shopping-bag" style="width:18px;height:18px"></i>
         Obtener el plan por $14.99
       </a>
@@ -1225,9 +1222,6 @@ footer{
     </div>
 
     <div class="pricing-with-pato">
-      <div class="pato-pricing-wrap">
-        <img src="https://d1yei2z3i6k35z.cloudfront.net/19131038/6ab22c4416ad27.73544121_Character_recreating_with_wings__20260921180535-Photoroom.png" alt="El Pato Millonario celebrando" class="pato-pricing-img">
-      </div>
       <div class="pricing-card">
       <div class="pricing-top">
         <div class="pricing-label">El Plan de Rescate Financiero</div>
@@ -1236,6 +1230,9 @@ footer{
       </div>
 
       <div class="pricing-body">
+        <div style="text-align:center;margin:0 0 24px;">
+          <img src="https://d1yei2z3i6k35z.cloudfront.net/19131038/6ab22c4416ad27.73544121_Character_recreating_with_wings__20260921180535-Photoroom.png" alt="El Pato Millonario" style="width:220px;height:auto;display:inline-block;filter:drop-shadow(0 12px 28px rgba(0,0,0,.25));">
+        </div>
         <div class="price-row">
           <span class="price-now">$14.99</span>
           <span class="price-was">$29</span>
@@ -1277,7 +1274,7 @@ footer{
         </ul>
 
         <div class="pricing-cta-wrap">
-          <a href="#" class="btn btn--primary btn--lg" id="buy-btn">
+          <a href="https://pay.hotmart.com/M107747282T" target="_blank" class="btn btn--primary btn--lg" id="buy-btn">
             <i data-lucide="shopping-bag" style="width:20px;height:20px"></i>
             Quiero el plan ahora — $14.99
           </a>
@@ -1396,7 +1393,7 @@ footer{
     </div>
 
     <div class="final-cta-btns">
-      <a href="#" class="btn btn--primary btn--lg">
+      <a href="https://pay.hotmart.com/M107747282T" target="_blank" class="btn btn--primary btn--lg">
         <i data-lucide="shopping-bag" style="width:20px;height:20px"></i>
         Quiero el plan ahora
       </a>
